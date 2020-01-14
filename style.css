@@ -4,3 +4,15 @@ html, body {
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
+
+#main-container {
+  margin: auto;
+  width: 100%;
+  height: 100v;
+  border: solid 1px red;
+  display: grid;
+}
+#main-container div {
+  border: solid 1px black;
+  padding-bottom: 100%; /* aspect ratio 1/1 */
+}
