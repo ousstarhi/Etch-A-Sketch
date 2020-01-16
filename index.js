@@ -1,8 +1,12 @@
 const mainContainer = document.getElementById('main-container');
 const randomBtn = document.getElementById('random-btn');
 const blackBtn = document.getElementById('black-color');
+const colorPicker = document.getElementById('inputColor');
+const grayScale = document.getElementById('grayScale');
 const clearBtn = document.getElementById('clear');
 const sizeBtn = document.getElementById('size-btn');
+let colorMode = null;
+let lightness = 80; // Initial value of hsl() lightness
 
 // Add A Default Start Grid
 for (let i = 0; i < (36 ** 2); i += 1) {
@@ -23,20 +27,37 @@ mainContainer.addEventListener('mouseover', (e) => {
 
 // Random Color Button
 randomBtn.addEventListener('click', () => {
-  mainContainer.addEventListener('mouseover', (e) => {
-    if (e.target.parentElement.id === 'main-container') {
-      e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
-    }
-  });
+  colorMode = 'random';
 });
 
 // Black Color Button
 blackBtn.addEventListener('click', () => {
-  mainContainer.addEventListener('mouseover', (e) => {
-    if (e.target.parentElement.id === 'main-container') {
+  colorMode = 'black';
+});
+
+// Color Picker
+colorPicker.addEventListener('click', () => {
+  colorMode = 'colorValue';
+});
+
+// GrayScale color
+grayScale.addEventListener('click', () => {
+  colorMode = 'grayScale';
+  lightness = 80; // Reset hsl() lightness value
+});
+mainContainer.addEventListener('mouseover', (e) => {
+  if (e.target.parentElement.id === 'main-container') {
+    if (colorMode === 'random') {
+      e.target.style.backgroundColor = `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)}, ${Math.floor(Math.random() * 256)})`;
+    } else if (colorMode === 'black') {
       e.target.style.backgroundColor = 'black';
+    } else if (colorMode === 'colorValue') {
+      const colorValue = document.getElementById('inputColor').value;
+      e.target.style.backgroundColor = `${colorValue}`;
+    } else if (colorMode === 'grayScale') {
+      e.target.style.backgroundColor = `hsl(0, 0%, ${lightness -= 1}%)`;
     }
-  });
+  }
 });
 
 // Clear Button
