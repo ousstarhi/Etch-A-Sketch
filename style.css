@@ -15,9 +15,28 @@ body {
   display: grid;
   position: relative;
   grid-template-columns: 1fr 3fr;
-  background-image: url(images/164787-abstract-orange-and-white-texture-background-image-min.jpg);
-  background-size: cover;
+  animation: color-change-5x 40s linear infinite alternate both;
 }
+
+@keyframes color-change-5x {
+  0% {
+    background: #19dcea;
+  }
+  25% {
+    background: #b22cff;
+  }
+  50% {
+    background: #ea2222;
+  }
+  75% {
+    background: #f5be10;
+  }
+  100% {
+    background: #3bd80d;
+  }
+}
+
+
 /* body::before {
   content: "";
   position: absolute;
@@ -162,13 +181,13 @@ h1 {
   font-family: 'luckiest_guyregular';
   font-size: 2rem;
   font-weight: lighter;
-	animation: tracking-in-contract 4s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite both;
+	animation: tracking-in-contract 2s cubic-bezier(0.215, 0.610, 0.355, 1.000) infinite alternate both;
 }
 
 @keyframes tracking-in-contract {
   0% {
-    letter-spacing: 0.5em;
-    opacity: 0;
+    letter-spacing: 0.1em;
+    opacity: 0.4;
   }
   40% {
     opacity: 0.6;
