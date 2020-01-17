@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'luckiest_guyregular';
+  src: url('./fonts/luckiestguy-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 html, body {
   margin: 0;
   padding: 0;
@@ -8,8 +15,10 @@ body {
   display: grid;
   position: relative;
   grid-template-columns: 1fr 3fr;
+  background-image: url(images/Childrens-Ministry.jpg);
+  background-size: cover;
 }
-body::before {
+/* body::before {
   content: "";
   position: absolute;
   width: 100%;
@@ -20,7 +29,7 @@ body::before {
   background-image: url(images/51cf6d559dee8c795d24a683cddf0871.jpg);
   background-size: cover;
   transform: scaleX(-1);
-}
+} */
 
 nav {
   display: flex;
