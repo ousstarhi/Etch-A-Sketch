@@ -2,10 +2,10 @@ const mainContainer = document.getElementById('main-container');
 const randomBtn = document.getElementById('random-btn');
 const blackBtn = document.getElementById('black-color');
 const colorPicker = document.getElementById('inputColor');
-const grayScale = document.getElementById('grayScale');
+const gradientGray = document.getElementById('gradientGray');
 const clearBtn = document.getElementById('clear');
 const sizeBtn = document.getElementById('size-btn');
-let colorMode = null;
+let colorMode = 'black';
 let lightness = 80; // Initial value of hsl() lightness
 
 // Add A Default Start Grid
@@ -17,13 +17,6 @@ for (let i = 0; i < (36 ** 2); i += 1) {
 const divSquares = document.querySelectorAll('#main-container div');
 const resolution = document.querySelector('div h1');
 resolution.textContent = `Resolution = ${Math.sqrt(divSquares.length)} x ${Math.sqrt(divSquares.length)}`;
-
-// Default Color
-mainContainer.addEventListener('mouseover', (e) => {
-  if (e.target.parentElement.id === 'main-container') {
-    e.target.style.backgroundColor = 'black';
-  }
-});
 
 // Random Color Button
 randomBtn.addEventListener('click', () => {
@@ -40,11 +33,13 @@ colorPicker.addEventListener('click', () => {
   colorMode = 'colorValue';
 });
 
-// GrayScale color
-grayScale.addEventListener('click', () => {
-  colorMode = 'grayScale';
+// Gradient Gray color
+gradientGray.addEventListener('click', () => {
+  colorMode = 'gradientGray';
   lightness = 80; // Reset hsl() lightness value
 });
+
+// Event Listener to the Main Container
 mainContainer.addEventListener('mouseover', (e) => {
   if (e.target.parentElement.id === 'main-container') {
     if (colorMode === 'random') {
@@ -54,7 +49,7 @@ mainContainer.addEventListener('mouseover', (e) => {
     } else if (colorMode === 'colorValue') {
       const colorValue = document.getElementById('inputColor').value;
       e.target.style.backgroundColor = `${colorValue}`;
-    } else if (colorMode === 'grayScale') {
+    } else if (colorMode === 'gradientGray') {
       e.target.style.backgroundColor = `hsl(0, 0%, ${lightness -= 1}%)`;
     }
   }
