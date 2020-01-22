@@ -10,32 +10,33 @@
 </head>
 
 <body>
-  <nav>
-    <button id="size-btn">Size</button>
-    <button id="clear">Clear</button>
-    <button id="random-btn">Rainbow</button>
-    <form>
-      <label for="inputColor">Color Picker</label>
-      <input type="color" name="color" id="inputColor">
-    </form>
-    <button id="gradientGray">Gradient Gray</button>
-    <button id="black-color">Black </button>
-  </nav>
-
-  <main>
-    <div>
-      <h1></h1>
-    </div>
-    <div id="main-container">
-      
-    </div>
-  </main>
+  <div id="grid-container">
+    <nav>
+      <button id="size-btn">Size</button>
+      <button id="clear">Clear</button>
+      <button id="random-btn">Rainbow</button>
+      <form>
+        <label for="inputColor">Color Picker</label>
+        <input type="color" name="color" id="inputColor">
+      </form>
+      <button id="gradientGray">Gradient Gray</button>
+      <button id="black-color">Black </button>
+    </nav>
+  
+    <main>
+      <div>
+        <h1></h1>
+      </div>
+      <div id="main-container">
+        
+      </div>
+    </main>
+  </div>
   
   <!--Modal for resizing-->
-  <div id="modal-size">
-    <form>
+  <div id="modal-size" class="display-block">
+    <form id="modal-form">
       <input type="text">
-      <input type="submit" value="submit">
     </form>
 
   </div>

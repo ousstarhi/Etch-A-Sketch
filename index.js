@@ -83,3 +83,8 @@ sizeBtn.addEventListener('click', () => {
   const newResolution = document.querySelector('div h1');
   newResolution.textContent = `Resolution = ${Math.sqrt(newDivSquares.length)} x ${Math.sqrt(newDivSquares.length)}`;
 });
+
+// Prevent Default for submiting
+document.forms['modal-form'].addEventListener('submit', (e) => {
+  e.preventDefault();
+});
