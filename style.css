@@ -184,8 +184,6 @@ h1 {
   }
 }
 
-
-
 #main-container {
   margin: auto;
   width: 640px;
@@ -202,4 +200,8 @@ h1 {
 }
 #main-container div {
   padding-bottom: 100%; /* aspect ratio 1/1 */
+}
+
+#modal-size {
+  display: none;
 }
