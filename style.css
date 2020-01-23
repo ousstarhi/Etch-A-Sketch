@@ -48,7 +48,7 @@ nav {
   align-items: center;
 }
 
-button {
+nav button {
   border: 0;
   border-radius: 20px;
   font-family: 'luckiest_guyregular';
@@ -65,26 +65,26 @@ button:focus, input:focus {
   outline: unset;
 }
 
-button:hover {
+nav button:hover {
   box-shadow: 0px 15px 20px rgba(129, 150, 142, 0.4);
   transform: translateY(-7px);
 }
 
-button#random-btn {
+nav button#random-btn {
   background: linear-gradient(90deg, #ff4787 0%,#4787ff 30%,#ffbf47 65%,#ff6347 100% );
 }
 
-button#black-color {
+nav button#black-color {
   background-color: black;
   color: white;
 }
 
-button#gradientGray {
+nav button#gradientGray {
   background: linear-gradient(90deg, #e6dede 0%,#808383 30%,#737270 65%,#333232 100% );
   font-size: 1.2rem;
 }
 
-button#clear {
+nav button#clear {
   background-color: white;
 }
 
@@ -206,9 +206,47 @@ h1 {
 }
 
 #modal-size {
-  display: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed; /* Stay in place */
+  left: 25%;
+  top: 10%;
+  width: 50%; 
+  height: 0;
+  overflow: hidden; /* Enable scroll if needed */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  transition: height 1s;
 }
 
 #modal-size.display-block {
-  display: block;
+  height: 50%;
+  z-index: 1;
+}
+#modal-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#modal-form input {
+  height: 35px;
+  border-radius: 27px;
+  padding-left: 22px;
+  font-size: 19px;
+}
+#modal-form input::-webkit-input-placeholder {
+  color: orange;
+}
+
+#modal-form button {
+  margin-top: 10px;
+  padding: 10px 18px;
+  background-color: lawngreen;
+  border: 0;
+  border-radius: 9px;
+  color: #800000;
+  font-family: 'luckiest_guyregular';
+  font-size: 18px;
 }
