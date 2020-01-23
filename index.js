@@ -65,9 +65,22 @@ clearBtn.addEventListener('click', () => {
 });
 
 // Size Button
+
+const modalInput = document.forms['modal-form'].querySelector('input[type ="text"]');
+
 sizeBtn.addEventListener('click', () => {
-  const promptSize = prompt('Enter a number');
+  const modalSize = document.getElementById('modal-size');
+  modalSize.classList.add('display-block');
+  modalInput.focus();
+});
+
+document.forms['modal-form'].addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent Default for submiting
+  const promptSize = document.forms['modal-form'].querySelector('input[type="text"]').value;
   if (promptSize === '' || promptSize === null) {
+    const modalSize = document.getElementById('modal-size');
+    modalSize.classList.remove('display-block');
+    modalInput.value = '';
     return;
   }
   while (mainContainer.firstChild) {
@@ -82,4 +95,7 @@ sizeBtn.addEventListener('click', () => {
   const newDivSquares = document.querySelectorAll('#main-container div');
   const newResolution = document.querySelector('div h1');
   newResolution.textContent = `Resolution = ${Math.sqrt(newDivSquares.length)} x ${Math.sqrt(newDivSquares.length)}`;
+  const modalSize = document.getElementById('modal-size');
+  modalSize.classList.remove('display-block');
+  modalInput.value = '';
 });
